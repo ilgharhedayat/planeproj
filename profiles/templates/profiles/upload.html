@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static "css/passengers.css" %}">
+<link rel="stylesheet" href="{% static "css/common.css" %}">
+<link rel="stylesheet" href="{% static "css/bootstrap.rtl.min.css" %}">
+<link rel="stylesheet" href="{% static "css/animate.css" %}">
+<link rel="stylesheet" href="{% static "css/owl.carousel.min.css" %}">
+<link rel="stylesheet" href="{% static "css/persian-datepicker.min.css" %}">
+<title>تعویض رمز عبور</title>
+{% endblock style %}
+
+{% block content %}
+
+
+<style>
+    table.GeneratedTable {
+        width: 100%;
+        background-color: #ffffff;
+        border-collapse: collapse;
+        border-width: 2px;
+        border-color: #c2c2c2;
+        border-style: solid;
+        color: #000000;
+    }
+
+    table.GeneratedTable td, table.GeneratedTable th {
+        border-width: 2px;
+        border-color: #c2c2c2;
+        border-style: solid;
+        padding: 3px;
+    }
+
+    table.GeneratedTable thead {
+        background-color: #852193;
+    }
+</style>
+
+
+<main>
+
+
+
+    <h4 class="my-5"></h4>
+    <section class="sign-in py-5">
+            <section class="information mb-3 p-4 col-12">
+        <div class="d-flex align-items-start">
+            <svg class="bi bi-people-fill" fill="currentColor" height="30" viewBox="0 0 16 16"
+                 width="30" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                <path d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"
+                      fill-rule="evenodd"/>
+                <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+            </svg>
+            <h4 class="ms-2 mt-1 fw-bold">مشخصات مسافران</h4>
+        </div>
+            <form id="file" method="post" enctype="multipart/form-data">
+        <div class="file_wrapper">
+
+                  <select aria-label="Default select example" class="form-select mx-2" name="madrak[]"  id="madrak">
+                        <option selected>نوع مدرک</option>
+                        <option value="کارت ملی">کارت ملی</option>
+                        <option value="شناسنامه">شناسنامه</option>
+                        <option value="پاسپورت">پاسپورت</option>
+                        <option value="سایر مدارک">سایر مدارک</option>
+                    </select>
+                <div class="d-flex w-100 justify-content-between align-items-center">
+                    <div class="input-group birth-date rounded-3 w-50 ms-2">
+                    <input class="form-control" name="description[]" placeholder="توضیحات" type="text" id="description">
+                   <div class="d-flex w-100 justify-content-between align-items-center">
+                    <input class="form-control w-100" name="images" placeholder="مدرک" type="file">
+                </div>
+                </div>
+                </div>
+
+            </form>
+            <hr>
+        </div>
+        <button class="btn btn-outline-primary" id="addNewfile" type="button">افزودن مدرک جدید</button>
+    </section>
+
+
+    </section>
+
+    <section class="rules-submit mb-3 col-12 p-4 d-flex justify-content-between align-items-center">
+        <div></div>
+        <div class="d-flex justify-content-center align-items-end">
+            <div class="text-primary me-2 d-flex align-items-center">
+            </div>
+            {%csrf_token%}
+            <button data-url="{% url 'user_pro:test' %}" id="finalSubmit1" class="btn ms-2 fw-bold btn-primary">
+                ارسال مدارک
+            </button>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+    <section class="features px-5 py-5 my-5">
+        <div class="icon-features d-flex flex-column align-items-center justify-content-end px-5"
+             style="border-left: 1px dotted #A281B0;">
+            <div class="d-flex double-feature mb-4">
+                <div class="single-feature d-flex justify-content-center align-items-center flex-column mx-2">
+                    <img class="my-2" src="{% static 'icons/icon2.png' %}" alt="icon">
+                    <small class="my-1">پوشش ۱۰۰ درصدی پروازها</small>
+                    <p class="my-1">خرید بلیط پروازهای داخلی و خارجی</p>
+                </div>
+                <div class="single-feature d-flex justify-content-center align-items-center flex-column mx-2">
+                    <img class="my-2" src="{% static 'icons/icon1.png' %}" alt="icon">
+                    <small class="my-1">دسترسی آسان از طریق وبسایت و موبایل</small>
+                    <p class="my-1">ساده‌ترین و سریع‌ترین راه برای جستجو، خرید و استرداد بلیط</p>
+                </div>
+            </div>
+            <div class="expand-feature rounded-3 w-100 mt-4 d-flex justify-content-center align-items-center flex-column">
+                <img class="my-2" src="{% static 'icons/icon3.png' %}" alt="icon">
+                <small class="my-1">تضمین بهترین خدمات برای مسافرین</small>
+                <p class="my-1">معتبرترین و به‌صرفه‌ترین سامانه فروش بلیط با پشتیبانی ۲۴ ساعته</p>
+            </div>
+        </div>
+
+        <div class="px-5 worldmap-feature d-flex justify-content-end align-items-center flex-column">
+            <img src="{% static 'images/worldmap.png' %}" alt="icon">
+            <p style="line-height: 30px;" class="mt-4 mb-0">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
+                چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
+                است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
+        </div>
+    </section>
+
+</main>
+
+{% endblock content %}
